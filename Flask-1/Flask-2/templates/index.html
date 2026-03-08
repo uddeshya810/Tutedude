@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>University Of Lucknow - Registration</title>
+</head>
+
+<body>
+
+<h1><u>University Of Lucknow</u></h1>
+<h3>Student Registration Form</h3>
+
+<form action="/submit" method="POST">
+
+    <p>
+        <label>Roll No :</label>
+        <input type="text" name="roll_no" placeholder="Enter Your Roll No">
+    </p>
+
+    <p>
+        <label>Enrollment No :</label>
+        <input type="text" name="enrollment_no" placeholder="Enter Your Enrollment No">
+    </p>
+
+    <p>
+        <label>Name :</label>
+        <input type="text" name="name" placeholder="Enter Your Name">
+    </p>
+
+    <p>
+        <label>Student Id :</label>
+        <input type="text" name="student_id" placeholder="Enter Your Student ID">
+    </p>
+
+    <p>
+        <label>Department :</label><br>
+        <input type="radio" name="department" value="cse"> Computer Science<br>
+        <input type="radio" name="department" value="it"> Information Technology<br>
+        <input type="radio" name="department" value="ece"> Electronics<br>
+        <input type="radio" name="department" value="mech"> Mechanical<br>
+        <input type="radio" name="department" value="civil"> Civil
+    </p>
+
+    <p>
+        <label>Year :</label>
+        <select name="year">
+            <option value="">-- Select Year --</option>
+            <option value="1">1st Year</option>
+            <option value="2">2nd Year</option>
+            <option value="3">3rd Year</option>
+            <option value="4">4th Year</option>
+        </select>
+    </p>
+
+    <p>
+        <button type="submit">Submit</button>
+    </p>
+
+</form>
+
+</body>
+</html>
