@@ -20,6 +20,15 @@ students = db["students"]
     current_date_time = now.strftime("%A, %d %B, %Y at %I:%M:%S %p")
     return render_template("index.html",current_date_time=current_date_time)
 
+@app.route("/api")
+def name():
+    name = request.values.get("name") 
+    age = request.values.get("age")  
+    result = {
+        "name":name,
+        "age":age
+    } 
+    return result
 
 # Save form data
 @app.route("/submit", methods=["POST"])
