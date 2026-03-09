@@ -3,7 +3,7 @@ import os
 from flask import Flask, render_template, request, redirect
 from pymongo import MongoClient
 from dotenv import load_dotenv
-
+from flask import jsonify
 load_dotenv()
 
 app = Flask(__name__)
@@ -19,7 +19,13 @@ students = db["students"]
  now = datetime.now()
     current_date_time = now.strftime("%A, %d %B, %Y at %I:%M:%S %p")
     return render_template("index.html",current_date_time=current_date_time)
-
+@app.route("/api")
+def name():
+    name = request.values.get("name") 
+    result = {
+        "name":name,
+         } 
+    return result
 
 # Save form data
 @app.route("/submit", methods=["POST"])
@@ -42,7 +48,7 @@ def submit():
         return render_template("index.html", error=str(e))
 
 #To view data stored in Database
-from flask import jsonify
+
 
 @app.route("/view")
 def view():
