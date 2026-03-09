@@ -4,6 +4,7 @@ from flask import Flask, render_template, request, redirect
 from pymongo import MongoClient
 from dotenv import load_dotenv
 from flask import jsonify
+from datetime import datetime
 load_dotenv()
 
 app = Flask(__name__)
@@ -15,20 +16,25 @@ db = client["university"]
 students = db["students"]
 
 # Show form
-@app.route("/")
- now = datetime.now()
-    current_date_time = now.strftime("%A, %d %B, %Y at %I:%M:%S %p")
-    return render_template("index.html",current_date_time=current_date_time)
 
+@app.route("/")
+def home():
+    now = datetime.now()
+    current_date_time = now.strftime("%A, %d %B, %Y at %I:%M:%S %p")
+    return render_template("index.html", current_date_time=current_date_time)
+
+# Example API
 @app.route("/api")
 def name():
-    name = request.values.get("name") 
-    age = request.values.get("age")  
+    name = request.values.get("name")
+    age = request.values.get("age")
+
     result = {
-        "name":name,
-        "age":age
-    } 
-    return result
+        "name": name,
+        "age": age
+    }
+
+    return jsonify(result)
 
 # Save form data
 @app.route("/submit", methods=["POST"])
