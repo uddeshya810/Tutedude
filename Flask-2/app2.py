@@ -3,7 +3,7 @@ import os
 from flask import Flask, render_template, request, redirect
 from pymongo import MongoClient
 from dotenv import load_dotenv
-
+from flask import jsonify
 load_dotenv()
 
 app = Flask(__name__)
@@ -51,7 +51,7 @@ def submit():
         return render_template("index.html", error=str(e))
 
 #To view data stored in Database
-from flask import jsonify
+
 
 @app.route("/view")
 def view():
