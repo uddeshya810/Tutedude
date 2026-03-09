@@ -16,8 +16,9 @@ students = db["students"]
 
 # Show form
 @app.route("/")
-def home():
-    return render_template("index.html")
+ now = datetime.now()
+    current_date_time = now.strftime("%A, %d %B, %Y at %I:%M:%S %p")
+    return render_template("index.html",current_date_time=current_date_time)
 
 
 # Save form data
